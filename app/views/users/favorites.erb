@@ -1,0 +1,36 @@
+
+<div id="favorites">
+  <h2><%= current_user.username %>'s Favorite Sales: </h2>
+
+  <table>
+    <thead>
+        <tr>
+          <td><h3><strong>Dates/Times</strong></h3></td>
+          <td><h3><strong>Sale Name & Company</strong></h3></td>
+          <td><h3><strong>Location</strong></h3></td>
+          <td><h3><strong>Distance</strong></h3></td>
+        </tr>
+    </thead>
+    <tbody>
+    <hr>
+    <% @favorites.each do |favorite| %>
+      <%= favorite.estatesale %>
+      <tr>
+        <td><%= favorite.estatesale.start_date%> - <%= favorite.estatesale.end_date%><br><%= favorite.estatesale.times%></td>
+        <td><a href="/estatesales"><%=favorite.estatesale.title%></a><br>Lasted updated: <%=favorite.estatesale.updated_at%></td>
+        <td><%=favorite.estatesale.address%><br><%=favorite.estatesale.city%>, <%=favorite.estatesale.state%>  <%=favorite.estatesale.zip_code%></td>
+        <td></td>
+        <td>
+            <form action="/favorites/<%=favorite.id%>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input class="button" type="submit" value="Remove Favorite">
+            </form>
+        </td>
+        <td>Notes: <input type="text" name="notes"><input type="submit" value="Save"></td>
+      </tr>
+      <%end%>
+ <!-- <td>Listed by: favorite.estatesale.company.company_name</td> -->
+
+    </tbody>
+  </table>
+</div>

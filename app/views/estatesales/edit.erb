@@ -1,0 +1,34 @@
+<div id="edit-sale-form">
+
+ <%= erb :_errors %>
+
+  <form action="/estatesales/<%= @sale.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+
+    <h1>Edit Listing: </h1>
+      <p>Sale Title: <input type="text" name="sale[title]" value="<%= @sale.title %>"></p>
+   <!--    <p>Company Name: <input type="text" name="company_name" value=" _ "></p> -->
+     <!--  <p>Company Website: <input type="url" name="company_url" value="_"></p> -->
+      <p>Street Address: <input type="text" name="sale[address]" value="<%= @sale.address %>"></p>
+      <p>City: <input type="text" name="sale[city]" value="<%= @sale.city %>"></p>
+      <p>State: <input type="text" name="sale[state]" value="<% @sale.state %>"></p>
+      <p>Zip: <input type="integer" name="sale[zip_code]" value="<%= @sale.zip_code %>"></p>
+      <p>Start Date: <input type="date" name="sale[start_date]" value="<%= @sale.start_date %>"></p>
+      <p>End Date: <input type="date" name="sale[end_date]" value="<%= @sale.end_date %>"></p>
+      <p>Times: <input type="text" name="sale[times]" value="<%= @sale.times %>"></p>
+      <p>Description: </p>
+      <textarea value="<%= @sale.description %>" name="sale[description]" cols="50" rows="10"></textarea>
+      <p>Forms of payment accepted: </p>
+      <textarea value="<%= @sale.forms_of_payment %>"name="sale[forms_of_payment]" cols="50" rows="5"></textarea>
+      <p>Special Instructions: </p>
+      <textarea value="<%= @sale.special_inst %>" name="sale[special_inst]" cols="50" rows="10"></textarea>
+      <br>
+      <br>
+      <p>Edit Photos: </p>
+      <input type="file" name="sale[img_url]">
+      <input type="submit" value="_______">
+      <br>
+      <br>
+      <input class="button" type="submit" value="Update Listing">
+  </form>
+</div>

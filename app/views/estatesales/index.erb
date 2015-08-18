@@ -1,0 +1,46 @@
+
+<!-- Should welcome both user types -->
+<% if logged_in? %>
+<h1>Welcome, <%= current_user.username %>!</h1>
+<% end %>
+
+
+<form id="distance-search" action="/estatesales/zip" method="post">
+  <p>Search for sales in you area by zip code:</p>
+  <input id="zip" type="search" name="search">
+  <input class="button" type="submit" value="Search">
+</form>
+
+<br>
+<br>
+<div class="sales-container">
+  <h2>Current Sales & Auctions: </h2>
+  <table>
+    <thead>
+      <tr>
+        <td><h3><strong>Dates/Times</strong></h3></td>
+        <td><h3><strong>Sale Name & Company</strong></h3></td>
+        <td><h3><strong>Location</strong></h3></td>
+        <td><h3><strong>Distance</strong></h3></td>
+      </tr>
+    </thead>
+    <tbody>
+      <hr>
+      <% @sales.each do |sale| %>
+      <tr>
+        <td><%=sale.start_date%> - <%=sale.end_date%><br><%=sale.times%></td>
+        <td><a href="/estatesales/<%=sale.id%>"><%=sale.title%></a><br>Lasted updated: <%=sale.updated_at%></td>
+        <td><%=sale.address%><br><%=sale.city%>, <%=sale.state%>  <%=sale.zip_code%></td>
+        <td><span id='distance'><%= @distance %></span></td>
+      </tr>
+
+        <!-- <td>Listed by: sale.company.company_name </td> -->
+        <!-- <td class="company"></td> -->
+
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
+
+

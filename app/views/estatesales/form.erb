@@ -1,0 +1,42 @@
+<%= erb :_errors %>
+
+<% if logged_in? %>
+  <h1>Welcome, <%= current_user.username %>!</h1>
+<% end %>
+<hr>
+
+<!-- Link to lister's profile page: -->
+<form action='/users/<%=@user.id%>' method='get'>
+  <input class='button' type='submit' value='Go to your Profile Page'>
+</form>
+
+
+<div id="new-sale-form">
+  <form action="/estatesales" method="post">
+    <h1>Sale Listing Form:</h1>
+      <p>Sale Title: <input type="text" name="sale[title]" placeholder="Ex: Highland Park Estate"></p>
+      <p>Company Name: <input type="text" name="company_name" placeholder="The Jewel Box"></p>
+      <p>Company Website: <input type="url" name="company_url" placeholder="http://www.thejewelbox.us/"></p>
+      <p>Street Address: <input type="text" name="sale[address]"></p>
+      <p>City: <input type="text" name="sale[city]"></p>
+      <p>State: <input type="text" name="sale[state]"></p>
+      <p>Zip: <input type="integer" name="sale[zip_code]"></p>
+      <p>Start Date: <input type="date" name="sale[start_date]"></p>
+      <p>End Date: <input type="date" name="sale[end_date]"></p>
+      <p>Times: <input type="text" name="sale[times]" placeholder="Fri: 10-5, Sat: 10-5..."></p>
+      <p>Description: </p>
+      <textarea name="sale[description]" cols="50" rows="10">Describe sale highlights....</textarea>
+      <p>Forms of payment accepted: </p>
+      <textarea name="sale[forms_of_payment]" cols="50" rows="5"> ex: Cash only, CC, Check...</textarea>
+      <p>Special Instructions: </p>
+      <textarea name="sale[special_inst]" cols="50" rows="10"> ex: no children, no large bags, ...</textarea>
+      <br>
+      <br>
+      <p>Upload Photos: </p>
+      <input type="file" name="sale[img_url]">
+      <input type="submit" value="Upload">
+      <br>
+      <br>
+      <input class="button" type="submit" value="Submit Listing">
+  </form>
+</div>

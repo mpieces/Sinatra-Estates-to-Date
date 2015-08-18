@@ -1,0 +1,70 @@
+
+<div class="row debug">
+  <div class="col span_4">
+    <% if !logged_in? %>
+      <div id="add-to-favorites">
+        <a href="#">Add Sale to Favorites <i class="icon icon-star-o icon-2x"></i></a>
+      </div>
+    <% end %>
+
+    <% if logged_in? %>
+      <div id="star-container">
+        <a id="favorite-link" value=<%=@sale.id%> href="/favorites">Add Sale to Favorites
+        <i id="empty" class="icon icon-star-o icon-2x"></i></a>
+        <i id="filled" class="icon icon-star icon-3x"></i>
+        <br>
+        <br>
+        <a id="see-favorites" href="/favorites">See All Favorites</a>
+      </div>
+    <% end %>
+
+    <% if !logged_in? %>
+      <div id="favorites-container">
+        <h3><a href="/sessions/new">   Sign In </a> to Add Sale to Favorites</h3>
+        <h4>Don't have an account? <a href="/shoppers/new">  Sign up here!</h4></a>
+      </div>
+    <% end %>
+  </div>
+  <div class="col span_4">
+    <!-- Individual sale details: -->
+    <div id="sale-container" data-address="<%= @sale.address %>, <%= @sale.city%>, <%= @sale.state %>, <%= @sale.zip_code %>">
+
+      <h1><%= @sale.title %></h1>
+
+      <h2><%= @sale.address %></h2>
+      <h2><%= @sale.city%>, <%=@sale.state%></h2>
+      <h2><%= @sale.zip_code %></h2>
+      <h2><%= @sale.start_date %> - </h2>
+      <h2><%= @sale.end_date %></h2>
+      <h2><%= @sale.times %></h2>
+      <h3><em>Description:</em></h3>
+      <h3><%= @sale.description %></h3>
+      <h3><em>Forms of Payment Accepted:</em> <%= @sale.forms_of_payment %></h3>
+      <h3><em>Special Instructions:</em> <%= @sale.special_inst %></h3>
+      <h3>Photos: <img src="<%= @sale.img_url %>"></h3>
+
+      <!-- Edit listing button:  -->
+      <h3>
+        <a href="/estatesales/<%= @sale.id %>/edit">Edit this Listing</a>
+      </h3>
+      <h3>
+        <a href="/estatesales">Back to All Sales</a>
+      </h3>
+
+      <%= erb :_errors %>
+
+      <!-- Delete listing button:  -->
+       <form action="/estatesales/<%= @sale.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <br>
+          <input class="button" type="submit" value="Delete Listing">
+        </form>
+    </div>
+  </div>
+  <div class="col span_4">
+    <div id="map-canvas">
+      "Google map inset"
+    </div>
+  </div>
+</div>
+

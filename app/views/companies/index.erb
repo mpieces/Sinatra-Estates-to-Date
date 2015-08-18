@@ -1,0 +1,9 @@
+<h2>Estate Sale Companies</h2>
+
+<% @companies.each do |company| %>
+  <p><%= company.company_name %></p>
+  <p><%= company.owner_name %></p>
+  <p><%= company.company_url %></p>
+  <p><%= company.phone_number %></p>
+  <hr>
+<% end %>
