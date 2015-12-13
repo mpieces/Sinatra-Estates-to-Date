@@ -1,3 +1,10 @@
+<div class="row debug">
+  <div class="col span_4">
+    <div id="sign-up-shopper-form">
+      <p>hello?</p>
+    </div>
+  </div>
+</div>
 
 <div class="row debug">
   <div class="col span_4">
@@ -21,11 +28,13 @@
     <% if !logged_in? %>
       <div id="favorites-container">
         <h3><a href="/sessions/new">   Sign In </a> to Add Sale to Favorites</h3>
-        <h4>Don't have an account? <a href="/shoppers/new">  Sign up here!</h4></a>
+        <h4>Don't have an account?....</h4>
+        <h4><a href="/shoppers/new">  Sign up here!</h4></a>
       </div>
     <% end %>
   </div>
   <div class="col span_4">
+
     <!-- Individual sale details: -->
     <div id="sale-container" data-address="<%= @sale.address %>, <%= @sale.city%>, <%= @sale.state %>, <%= @sale.zip_code %>">
 
@@ -61,10 +70,12 @@
         </form>
     </div>
   </div>
+
   <div class="col span_4">
     <div id="map-canvas">
       "Google map inset"
     </div>
   </div>
+
 </div>
 

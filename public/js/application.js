@@ -79,7 +79,8 @@ var signUpShopper = function () {
     .done(function(response) {
       console.log(response)
       console.log("great success!")
-      $('#favorites-container').replaceWith(response);
+      $('#sign-up-shopper-form').prepend(response);
+      // $('#favorites-container').replaceWith(response);
       // $('#favorites-container').hide();
     });
   });
@@ -153,6 +154,9 @@ function loadScript() {
 }
 
 window.onload = loadScript;
+
+
+
 
 // Zip Code API Use:
 

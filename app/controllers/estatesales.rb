@@ -8,6 +8,10 @@ get '/estatesales' do
   @sales = Estatesale.all
   # @zips = ZipCodes.new
   # @distance = @zips.get_distance(94115, 90210)
+  if params["zip_code"].present?
+    # get the distance for each sale
+  end
+
   erb :"estatesales/index"
 end
 

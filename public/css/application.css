@@ -156,7 +156,7 @@ a:hover {
 Sign Up or Sign In Box*/
 #favorites-container {
   visibility: hidden;
-  height: 80px;
+  height: 120px;
   width: 275px;
   border: 2px solid gray;
   border-radius: 10px;
@@ -279,4 +279,6 @@ tr:hover {
   background-color: #c3e6e5;
 }
 
-
+#shopper-sign-up {
+  border: 2px solid black;
+}
